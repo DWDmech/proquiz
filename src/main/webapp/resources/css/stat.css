@@ -1,0 +1,66 @@
+.topic-icon {
+  padding: 1px 15px 1px 1px;
+  background: url("../img/topic_icon.png") no-repeat top left;
+}
+
+.author-icon {
+  padding: 1px 20px 1px 1px;
+  background: url("../img/author_icon.png") no-repeat top left;
+}
+
+.date-icon {
+  padding: 1px 20px 1px 1px;
+  background: url("../img/date_icon.png") no-repeat top left;
+}
+
+.people-icon {
+  padding: 1px 20px 1px 1px;
+  background: url("../img/people_icon.png") no-repeat top left;
+}
+
+.interviews {
+  max-height: 90%;
+}
+
+.interview {
+  background-color: #fff;
+}
+
+.interview-header-title p {
+  margin: 0;
+  font-size: 10pt;
+}
+
+.comment-user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.input-group-text {
+  border-radius: 0;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+/* drop down */
+.descr{
+    display:none;
+    padding:10px;
+    background:#f3f3f3;
+    -moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    max-height: 430px;
+    overflow: auto;
+}
+.poster:hover .descr{
+    display:block;
+    position:absolute;
+    top:38px;
+    left:35px;
+    z-index:9999;
+}
+/* drop down */

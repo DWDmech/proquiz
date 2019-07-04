@@ -1,0 +1,75 @@
+input[type=radio] {
+  display: none;
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+input[type=radio] + label {
+    padding-left: 30px;
+    height: 25px;
+    display: inline-block;
+    line-height: 25px;
+    font-size: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+    background: url("../img/check-icon-off.png") no-repeat;
+}
+
+input[type=radio]:checked + label {
+    background: url("../img/check-icon-on.png") no-repeat;
+}
+
+.create {
+  background-color: #FFF;
+  overflow: auto;
+  max-height: 83.8vh;
+}
+
+#inputEmail, #inputName, #inputTitle, #inputCategory {
+  border-radius: 0;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.answer-btn button, .questions-btn button, input[type='submit'] {
+  background-color: #657dff;
+  border-color: #657dff;
+  border-radius: 0px;
+}
+
+.input-group-text {
+  border-radius: 0;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+/* Interview Start */
+.interview-wrapper {
+	overflow: auto;
+	max-height: 89vh;	
+}
+
+.comment-user-img {
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+}
+.comment-textarea {
+ resize: none;
+ height: 55px;
+}
+.btn-comment {
+	border-radius: 0;
+	background-color: #657dff;
+}
+/* Interview End   */

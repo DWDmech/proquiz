@@ -1,0 +1,157 @@
+html, body {
+  height: 100%;
+  background-color: #f6f7fa !important;
+  font-family: 'Roboto', sans-serif;
+  color: #465075 !important;
+}
+
+
+.navbar {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 15pt;
+}
+
+@media (min-width: 320px) {
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
+.nav-link {
+  color: #465075 !important;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .nav-link {
+    font-size: 17pt;
+  }
+}
+
+.btns {
+  padding-top: 30px;
+}
+
+.btn-login {
+  color: #fff !important;
+  background-color: #6c7cfb;
+  border-radius: 40px;
+}
+
+.btn-registry {
+  height: 60px;
+  font-size: 16pt;
+}
+
+.btn-download {
+  height: 60px;
+  font-size: 13pt;
+  padding-top: 2vh !important;
+}
+
+@media (min-width: 768px) {
+  .left .btn {
+    font-size: 20pt;
+  }
+
+  .btn-registry {
+    height: 80px;
+  }
+  
+  .btn-download {
+    height: 80px;
+  }
+}
+
+.left {
+  background: url("../img/stars.png") no-repeat;
+  padding-top: 15%;
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  .left {
+    height: inherit;
+    padding-top: 180px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .left {
+    padding-top: 150px;
+  }
+}
+
+.left .text span {
+  font-size: 53pt;
+  line-height: 1;
+}
+
+.left .text p {
+  font-size: 14pt;
+  padding-top: 50px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .left .text span {
+    font-size: 89pt;
+    line-height: 1;
+  }
+
+  .left .text p {
+    font-size: 24pt;
+    padding-top: 50px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 767px) {
+  .left .text span {
+    font-size: 44pt;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+  .left .text span {
+    font-size: 39pt;
+    line-height: 1;
+  }
+
+  .left .text p {
+    font-size: 12pt;
+    padding-top: 50px;
+  }
+}
+
+.left .btn {
+  background-color: #6c7cfb;
+  color: #fff;
+  border-radius: 40px;
+}
+
+.right img {
+  width: 100%
+}
+
+/*
+.right img {
+  margin-top: 100px;
+  width: 100%
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+  .right img {
+    margin-top: 0;
+  }
+}
+*/

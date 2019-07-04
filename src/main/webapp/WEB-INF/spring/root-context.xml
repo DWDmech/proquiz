@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	
+	<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<constructor-arg value="11"/>
+	</bean>
+	<!-- 
+	<bean id = "dataSourceSql" 
+		  class = "org.springframework.jdbc.datasource.DriverManagerDataSource"
+		  p:driverClassName = "com.mysql.jdbc.Driver"
+		  p:url = "jdbc:mysql://localhost:3306/amazin_db?characterEncoding=utf8"
+		  p:username = "root"
+		  p:password = "root"/>
+	 -->
+		  
+	<bean id = "dataSourceSql" 
+		  class = "org.springframework.jdbc.datasource.DriverManagerDataSource"
+		  p:driverClassName = "org.postgresql.Driver"
+		  p:url = "jdbc:postgres://ppymkfciivksof:de2009f11dc005b6db567a20ea44d7b078bab7aa7af38b70431f9926c11f2b0c@ec2-54-75-230-41.eu-west-1.compute.amazonaws.com:5432/d2bitgodo037vf?characterEncoding=utf8"
+		  p:username = "ppymkfciivksof"
+		  p:password = "de2009f11dc005b6db567a20ea44d7b078bab7aa7af38b70431f9926c11f2b0c"/>
+		  
+	<bean id="transactionManager"
+        class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
+    </bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSourceSql" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="packagesToScan"
+             value="org.home.proquiz.entities"/>
+        <property name="jpaProperties">
+            <props>
+            	<prop key="hibernate.dialect">
+                    org.hibernate.dialect.PostgreSQLDialect
+                </prop>
+            	<!-- 
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQLDialect
+                </prop>
+            	 -->
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.CharSet">utf8</prop>
+		        <prop key="hibernate.connection.characterEncoding">utf8</prop>
+		        <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+	<context:component-scan base-package="org.home.clickers"/>
+    <jpa:repositories base-package="org.home.proquiz.model"
+                      entity-manager-factory-ref="emf"
+                      transaction-manager-ref="transactionManager"/>
+                      
+     <bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+</beans>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<b:bean id="userAuthntication" class="org.home.proquiz.auth.UserSuccessAuthnticationHandler" />
+	<b:bean id="customUserDetailsService" class="org.home.proquiz.auth.CustomUserDitalsService" />
+    <b:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<b:constructor-arg value="11" />
+	</b:bean>
+		
+	<http use-expressions="true" >
+		<intercept-url pattern="/panel/**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/api/interview/**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/api/android/**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/api/user/**" access="permitAll"/>
+		<intercept-url pattern="/api/admin/**" access="hasRole('ROLE_ADMIN')"/>
+		
+		<intercept-url pattern="/" access="permitAll"/>
+		<intercept-url pattern="/login" access="permitAll"/>
+		<intercept-url pattern="/registry" access="permitAll"/>
+		<intercept-url pattern="/about" access="permitAll"/>
+		<intercept-url pattern="/contact" access="permitAll"/>
+		<intercept-url pattern="/404" access="permitAll"/>
+		<intercept-url pattern="/403" access="permitAll"/>
+		<intercept-url pattern="/error" access="permitAll"/>
+		<intercept-url pattern="/success" access="permitAll"/>
+		
+		 
+		<form-login 
+			login-page="/login" 
+			username-parameter="email"
+			authentication-success-handler-ref="userAuthntication"/>
+		<csrf disabled="true"/>
+		<logout delete-cookies="true" logout-success-url="/"/>
+		<!--
+		<remember-me key="uniqueAndSecret" user-service-ref="customUserDetailsService"/>
+		-->
+	</http>
+
+	<authentication-manager>
+        <authentication-provider user-service-ref="customUserDetailsService">
+        <password-encoder ref="encoder"/>
+        </authentication-provider>
+    </authentication-manager>
+</b:beans>
