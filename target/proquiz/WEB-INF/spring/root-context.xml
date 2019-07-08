@@ -21,12 +21,19 @@
 		  p:url = "jdbc:mysql://localhost:3306/amazin_db?characterEncoding=utf8"
 		  p:username = "root"
 		  p:password = "root"/>
-	 -->
 		  
 	<bean id = "dataSourceSql" 
 		  class = "org.springframework.jdbc.datasource.DriverManagerDataSource"
 		  p:driverClassName = "org.postgresql.Driver"
-		  p:url = "jdbc:postgres://ppymkfciivksof:de2009f11dc005b6db567a20ea44d7b078bab7aa7af38b70431f9926c11f2b0c@ec2-54-75-230-41.eu-west-1.compute.amazonaws.com:5432/d2bitgodo037vf?characterEncoding=utf8"
+		  p:url = "jdbc:postgresql://ppymkfciivksof:de2009f11dc005b6db567a20ea44d7b078bab7aa7af38b70431f9926c11f2b0c@ec2-54-75-230-41.eu-west-1.compute.amazonaws.com:5432/d2bitgodo037vf?characterEncoding=utf8"
+		  p:username = "ppymkfciivksof"
+		  p:password = "de2009f11dc005b6db567a20ea44d7b078bab7aa7af38b70431f9926c11f2b0c"/>
+	 -->
+
+	<bean id = "dataSourceSql" 
+		  class = "org.springframework.jdbc.datasource.DriverManagerDataSource"
+		  p:driverClassName = "org.postgresql.Driver"
+		  p:url = "jdbc:postgresql://ec2-54-75-230-41.eu-west-1.compute.amazonaws.com:5432/d2bitgodo037vf?characterEncoding=utf8"
 		  p:username = "ppymkfciivksof"
 		  p:password = "de2009f11dc005b6db567a20ea44d7b078bab7aa7af38b70431f9926c11f2b0c"/>
 		  
