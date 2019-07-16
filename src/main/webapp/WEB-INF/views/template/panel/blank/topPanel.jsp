@@ -13,7 +13,7 @@
 	        <button class="btn btn-outline-secondary search-btn" type="submit"><span class="search-icon"></span></button>
 	      </div>
 	      <input type="text" class="form-control search-input" placeholder="Пошук" name="input-search" aria-describedby="search-input">
-	      <select class="search-select" name="mode">
+	      <select class="search-select px-2" name="mode">
             <option value="name" selected>Пошук по імені</option>
             <option value="title">Пошук по назві</option>
           </select>

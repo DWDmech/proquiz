@@ -62,7 +62,7 @@ public interface InterviewRepository extends PagingAndSortingRepository<Intervie
 			value = "SELECT i.* "
 			+ "FROM interview i "
 			+ "INNER JOIN interviews ii "
-			+ "ON i.id = ii.interview_id and ii.category_id = ?1 and i.active = 1 "
+			+ "ON i.id = ii.interview_id and ii.category_id = ?1 and i.active = true "
 			+ "ORDER BY ?#{#pageable}",
 			countQuery = "SELECT count(i.id) "
 					+ "FROM interview i "
